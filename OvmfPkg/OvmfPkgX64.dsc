@@ -580,7 +580,7 @@
   }
 
 [PcdsFixedAtBuild]
-  # gEfiMdeModulePkgTokenSpaceGuid.PcdHeapGuardPropertyMask|0x0d
+  gEfiMdeModulePkgTokenSpaceGuid.PcdHeapGuardPropertyMask|0x0d
   gEfiMdeModulePkgTokenSpaceGuid.PcdHeapGuardPoolType|0x50
   gEfiMdeModulePkgTokenSpaceGuid.PcdHeapGuardPageType|0x50
   gEfiMdeModulePkgTokenSpaceGuid.PcdExtFpdtBootRecordPadSize|0x200000
