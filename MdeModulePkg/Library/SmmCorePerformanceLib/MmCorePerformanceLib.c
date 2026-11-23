@@ -236,7 +236,8 @@ GetFpdtRecordPtr (
     //
     // Check if pre-allocated buffer is full
     //
-    if (mPerformanceLength + RecordSize > mMaxPerformanceLength) {
+    // Always ReallocatePool so we can reproduce the issue on first fpdt record
+    // if (mPerformanceLength + RecordSize > mMaxPerformanceLength) {
       mSmmBootPerformanceTable = ReallocatePool (
                                    mPerformanceLength,
                                    mPerformanceLength + RecordSize + FIRMWARE_RECORD_BUFFER,
@@ -249,7 +250,7 @@ GetFpdtRecordPtr (
 
       mSmmBootPerformanceTable->Header.Length = mPerformanceLength;
       mMaxPerformanceLength                   = mPerformanceLength + RecordSize + FIRMWARE_RECORD_BUFFER;
-    }
+    // }
 
     //
     // Covert buffer to FPDT Ptr Union type.

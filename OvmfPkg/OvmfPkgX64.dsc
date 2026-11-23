@@ -557,6 +557,34 @@
   HobPrintLib|MdeModulePkg/Library/HobPrintLib/HobPrintLib.inf
   MmServicesTableLib|MdePkg/Library/StandaloneMmServicesTableLib/StandaloneMmServicesTableLib.inf
 
+[LibraryClasses]
+  LockBoxLib|MdeModulePkg/Library/LockBoxNullLib/LockBoxNullLib.inf
+
+[LibraryClasses.X64.SMM_CORE]
+  PerformanceLib|MdeModulePkg/Library/SmmCorePerformanceLib/SmmCorePerformanceLib.inf
+[LibraryClasses.X64.DXE_CORE]
+  PerformanceLib|MdeModulePkg/Library/DxeCorePerformanceLib/DxeCorePerformanceLib.inf
+
+[LibraryClasses.X64.DXE_SMM_DRIVER]
+  PerformanceLib|MdeModulePkg/Library/SmmPerformanceLib/SmmPerformanceLib.inf
+
+[PcdsFixedAtBuild]
+  gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask       | 0x1
+
+[Components.X64, Components.AARCH64]
+  ShellPkg/DynamicCommand/DpDynamicCommand/DpDynamicCommand.inf {
+    <PcdsFixedAtBuild>
+      ## This flag is used to control initialization of the shell library
+      #  This should be FALSE for compiling the dynamic command.
+      gEfiShellPkgTokenSpaceGuid.PcdShellLibAutoInitialize|FALSE
+  }
+
+[PcdsFixedAtBuild]
+  # gEfiMdeModulePkgTokenSpaceGuid.PcdHeapGuardPropertyMask|0x0d
+  gEfiMdeModulePkgTokenSpaceGuid.PcdHeapGuardPoolType|0x50
+  gEfiMdeModulePkgTokenSpaceGuid.PcdHeapGuardPageType|0x50
+  gEfiMdeModulePkgTokenSpaceGuid.PcdExtFpdtBootRecordPadSize|0x200000
+
 ################################################################################
 #
 # Pcd Section - list of all EDK II PCD Entries defined by this Platform.
